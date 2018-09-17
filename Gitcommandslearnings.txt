@@ -1,0 +1,78 @@
+git fetch
+
+git remote -v
+cat .git/config
+
+git branch --set-upstream-to=origin/develop develop
+
+
+vi .git/config
+
+git pull
+
+git status
+
+gitk
+
+To switch branches:
+git checkout feature/MOLE-868-fix-specflow-end-to-end-tests
+
+git rebase develop
+git mergetool
+git push -f
+Create Pull request
+
+
+How to create release branch
+  807  git checkout develop 
+  808  git pull 
+  809  git status 
+  810  git checkout -b release/v0.2 
+  811  git push 
+  812      git push --set-upstream origin release/v0.2
+git m
+
+
+
+GIT Conflict Resolution Workflow Suggestion:
+Setup
+You can use kdiff3 to resolve your conflicts during merge.
+
+Install KDiff3 http://kdiff3.sourceforge.net/
+
+You need to run the installer as admin or install in a directory of your own. e.g. c:\dev
+
+once kdiff3 is installed run these commands in your GIT Bash terminal:
+
+git config --global --add merge.tool kdiff3
+git config --global --add mergetool.kdiff3.path "C:/Program Files/KDiff3/kdiff3.exe"
+git config --global --add mergetool.kdiff3.trustExitCode false
+
+git config --global --add diff.guitool kdiff3
+git config --global --add difftool.kdiff3.path "C:/Program Files/KDiff3/kdiff3.exe"
+git config --global --add difftool.kdiff3.trustExitCode false
+https://stackoverflow.com/questions/33308482/git-how-configure-kdiff3-as-merge-tool-and-diff-tool
+
+Rebase and Conflict Resolution
+git rebase develop
+if there are any conclicts:
+
+git mergetool
+follow the instructions on terminal. KDiff3 will popup to let you resolve the conflicts.
+
+Click on A B C buttons to choose which edit you want,
+
+then multiple arrows down icon to get to the next conflict.
+
+When done, save and exit kdiff3. on to the next conflict.
+
+git rebase --continue
+if you encounter any issues (e.g. some other git program interfierse. which is quite common) then abort and restart:
+
+git rebase --abort
+ 
+
+when Everything is done force push to your feature branch:
+
+git push -f
+ 
