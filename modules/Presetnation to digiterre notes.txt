@@ -1,0 +1,7 @@
+
+Challenges:
+Test Data / Reference data/ Static data/ Broker -Trader setup
+Test environment setup- Upgrage the database to mirror that of Production (Database server- infrastructure upgrade)
+Baseline metrics
+
+Alerting--When a lambda fails, it triggers a notification to slack, thereby we will know that lambda cant handle the volume
